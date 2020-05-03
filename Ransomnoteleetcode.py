@@ -1,5 +1,5 @@
 class Solution:
-    def canConstruct(self, ransomNote: str, magazine: str):
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
         if len(ransomNote)>len(magazine):
             return False
         d={}
@@ -11,7 +11,8 @@ class Solution:
         for c in ransomNote:
             if c not in d:
                 return False
-            if d[c]==0:
+            elif d[c]<0:
                 return False
-            d[c]-=1
+            else:
+                d[c]-=1
         return True
